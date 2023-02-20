@@ -12,32 +12,24 @@ def cargarArchivo(ruta, arreglo):
     lineas = archivo.readlines()
     total = 0
     for linea in lineas:
-        LinesData = linea.split(';')
-        tmp_titulo = None
-        tmp_actores = None
-        tmp_anio = None
-        tmp_genero = None
-        index = 0
-        for data in LinesData:
-            if index == 0:
-                data = data.strip()
-                tmp_titulo = data
-            if index == 1:
-                ListaActores = []
-                data = data.split(',')
-                for actor in data:
-                    ListaActores.append(actor.strip())
-                tmp_actores = ListaActores
-            if index == 2:
-                data = data.strip()
-                tmp_anio = data
-            if index == 3:
-                data = data.strip()
-                tmp_genero = data
-            index += 1
+        titulo, actores, anio, genero = linea.split(';')
+        tmp_titulo = titulo.strip()
+        tmp_actores = actores.split(',')
+        tmp_anio = anio.strip()
+        tmp_genero = genero.strip()
         pelicula = Pelicula(tmp_titulo, tmp_actores, tmp_anio, tmp_genero)
-        arreglo.append(pelicula)
+        repetido = False
+        for peli in arreglo:
+            if peli.titulo == tmp_titulo:
+                peli.actores = tmp_actores
+                peli.anio = tmp_anio
+                peli.genero = tmp_genero
+                repetido = True
+                continue
+        if not repetido:
+            arreglo.append(pelicula)
         total += 1
+    print(len(arreglo))
     return total
 
 # MENU PRINCIPAL
@@ -313,7 +305,7 @@ def filtro_anios():
               "\n     Presiona una tecla para continuar...")
 
 
-def filtro_genero():
+def filtro_generos():
     limpiar()
     try:
         lista_generos = []

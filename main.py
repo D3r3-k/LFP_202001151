@@ -59,7 +59,7 @@ while opcion != 5:
             elif op_submenu == 2:
                 filtro_anios()
             elif op_submenu == 3:
-                filtro_genero()
+                filtro_generos()
             elif op_submenu == 4:
                 pass
             elif type(op_submenu) is type(None):
