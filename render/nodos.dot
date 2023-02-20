@@ -1,0 +1,5 @@
+digraph{
+rankdir = LR;
+node [fontname = "Arial Black"; fontsize = 14; margin = "0.2,0.1";];
+edge [color = "#008cff";];
+}
