@@ -1,5 +1,6 @@
 import os
 
+
 def graficar(lista_peliculas):
     try:
         archivo = "render/nodos.dot"
@@ -19,6 +20,7 @@ def graficar(lista_peliculas):
             for actor in pelicula.actores:
                 if actor not in listaActores:
                     listaActores.append(actor)
+
         for actor in listaActores:
             nodo = ('"'+actor+'"[shape = box;color = purple;label ="' +
                     actor+'";margin = "0.3,0.2";fontsize = 10;];\n')
