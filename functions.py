@@ -219,8 +219,8 @@ def filtro_actores():
         lista_actores = []
         for pelicula in lista_peliculas:
             for actor in pelicula.actores:
-                if actor not in lista_actores:
-                    lista_actores.append(actor)
+                if actor.strip() not in lista_actores:
+                    lista_actores.append(actor.strip())
         print("==============[ Lista de Actores ]==============")
         index = 1
         for actor in lista_actores:
