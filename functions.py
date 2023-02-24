@@ -29,7 +29,7 @@ def cargarArchivo(ruta, arreglo):
         if not repetido:
             arreglo.append(pelicula)
         total += 1
-    print(len(arreglo))
+    archivo.close()
     return total
 
 # MENU PRINCIPAL

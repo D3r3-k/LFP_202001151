@@ -36,7 +36,7 @@ def graficar(lista_peliculas):
         archivoDOT.close()
         os.system("dot.exe -Tpng "+archivo+" -o " +
                   archivo.replace(".dot", ".png"))
-
+        archivoDOT.close()
         print("     [✓] Renderizacion completa!")
         input("     Presiona una tecla para continuar...")
     except:
