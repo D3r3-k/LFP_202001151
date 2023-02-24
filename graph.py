@@ -30,13 +30,14 @@ def graficar(lista_peliculas):
             for actorP in pelicula.actores:
                 for actorL in listaActores:
                     if actorP == actorL:
-                        nodo = ('"'+pelicula.titulo+'"'+'->'+'"'+actorP+'"')
+                        nodo = ('"'+pelicula.titulo+'"'+'->'+'"'+actorP+'"\n')
                         archivoDOT.write(nodo)
         archivoDOT.write("}\n")
         archivoDOT.close()
         os.system("dot.exe -Tpng "+archivo+" -o " +
                   archivo.replace(".dot", ".png"))
         archivoDOT.close()
+
         print("     [✓] Renderizacion completa!")
         input("     Presiona una tecla para continuar...")
     except:

@@ -15,6 +15,10 @@ def cargarArchivo(ruta, arreglo):
         titulo, actores, anio, genero = linea.split(';')
         tmp_titulo = titulo.strip()
         tmp_actores = actores.split(',')
+        arrAct = []
+        for act in tmp_actores:
+            arrAct.append(act.strip())
+        tmp_actores = arrAct
         tmp_anio = anio.strip()
         tmp_genero = genero.strip()
         pelicula = Pelicula(tmp_titulo, tmp_actores, tmp_anio, tmp_genero)
@@ -219,8 +223,8 @@ def filtro_actores():
         lista_actores = []
         for pelicula in lista_peliculas:
             for actor in pelicula.actores:
-                if actor.strip() not in lista_actores:
-                    lista_actores.append(actor.strip())
+                if actor not in lista_actores:
+                    lista_actores.append(actor)
         print("==============[ Lista de Actores ]==============")
         index = 1
         for actor in lista_actores:
